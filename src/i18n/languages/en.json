@@ -1,0 +1,16 @@
+{
+  "auth__register": "Register",
+  "auth__register_offline": "Register Offline",
+  "auth__login": "Login",
+  "auth__here": "here",
+  "auth__instead": "instead.",
+  "auth__switch_to_login_message": "Login Instead",
+  "auth__switch_to_register_message": "Register Instead",
+  "auth__switch_to_online_message_part_1": "Want to use all of our features? Press",
+  "auth__switch_to_offline_message_part_1": "Want to use this app offline only? Press",
+  "auth__username_label": "Username",
+  "auth__password_label": "Password",
+  "auth__confirm_password_label": "Confirm Password",
+  "auth__email_label": "Email",
+  "auth__username_empty_error_message": "Username must not be empty."
+}
