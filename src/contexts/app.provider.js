@@ -9,15 +9,15 @@ const AppProvider = ({ children }) => {
     email: null,
     username: null,
     created: 0,
-    secret: "",
     rated: false,
+    secret: "",
+    plays: [],
     lists: {
       Collection: [],
-      Plays: [],
       Wishlist: [],
     },
     editPlay: {},
-    defaultList: "Plays",
+    defaultView: "Plays",
     offlineOnly: false,
     onboardingCompleted: false,
   });
@@ -32,7 +32,6 @@ const AppProvider = ({ children }) => {
         setAppState((value) => ({ ...value, id: "0" }));
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -71,6 +70,10 @@ const AppProvider = ({ children }) => {
     setAppState((value) => ({ ...value, rated: rated }));
   };
 
+  const setPlays = (plays) => {
+    setAppState((value) => ({ ...value, plays: plays }));
+  };
+
   const setLists = (listData) => {
     let newLists = { ...appState.lists };
     let listDataValue = listData.value;
@@ -82,8 +85,8 @@ const AppProvider = ({ children }) => {
     setAppState((value) => ({ ...value, editPlay: play }));
   };
 
-  const setDefaultList = (list) => {
-    setAppState((value) => ({ ...value, defaultList: list }));
+  const setDefaultView = (view) => {
+    setAppState((value) => ({ ...value, defaultView: view }));
   };
 
   const setOfflineOnly = (offlineOnly) => {
@@ -102,9 +105,10 @@ const AppProvider = ({ children }) => {
     setUsername,
     setRated,
     setUserEmail,
+    setPlays,
     setLists,
     setEditPlay,
-    setDefaultList,
+    setDefaultView,
     setOfflineOnly,
     setOnboardingCompleted,
   };
