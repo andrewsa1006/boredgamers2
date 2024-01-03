@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 
-import TextInputComponent from "../../../components/text-input/text-input.component";
+import TextInputComponent from "../../../components/text-inputs/text-input.component";
 import i18n from "../../../i18n";
 
 const RegisterComponent = () => {

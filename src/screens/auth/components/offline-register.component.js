@@ -4,7 +4,7 @@ import { Button, Banner } from "react-native-paper";
 
 import i18n from "../../../i18n";
 import AppContext from "../../../contexts/app.context";
-import TextInputComponent from "../../../components/text-input/text-input.component";
+import TextInputComponent from "../../../components/text-inputs/text-input.component";
 
 const OfflineRegisterComponent = () => {
   const [username, setUsername] = useState("");
