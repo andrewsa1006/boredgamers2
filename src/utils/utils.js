@@ -5,14 +5,17 @@ export const unescapeHTML = (escapedHTML) => {
   return escapedHTML
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&amp;/g, "&");
+    .replace(/&amp;/g, "&")
+    .replace(/&rsquo;/g, "'")
+    .replace(/&mdash;/, "--")
+    .replace(/&ndash;/, "-");
 };
 
 export const clearHTMLTags = (strToSanitize) => {
-  return strToSanitize.replace(/(<([^>]+)>)/gi, "");
+  return strToSanitize.replace(/(<([^>]+)>)/gi, " ");
 };
 
-export const gameGameIds = async (url) => {
+export const getGameIds = async (url) => {
   let res = await axios.get(url);
   let bulkData = new XMLParser().parseFromString(res.data);
   let idString = "";
@@ -21,6 +24,7 @@ export const gameGameIds = async (url) => {
       ? (idString = +bulkData.children[i].attributes.objectid)
       : (idString = idString + "," + bulkData.children[i].attributes.objectid);
   }
+  return idString;
 };
 
 export const getSingleGame = async (url) => {
@@ -32,6 +36,7 @@ export const getSingleGame = async (url) => {
   };
 
   gameObject.objectId = games.children[i].attributes.objectid;
+  return gameObject;
 };
 
 export const getGameList = async (url) => {
@@ -48,7 +53,9 @@ export const getGameList = async (url) => {
 
     let names = games.children[i].getElementsByTagName("name");
     names.forEach((name) => {
-      name.attributes.primary ? (gameObject.name = name?.value) : null;
+      name.attributes.primary
+        ? (gameObject.name = clearHTMLTags(unescapeHTML(name?.value)))
+        : null;
     });
 
     gameObject.minPlayers =
@@ -67,8 +74,8 @@ export const getGameList = async (url) => {
     gameObject.maxPlayTime =
       games.children[i].getElementsByTagName("maxplaytime")[0]?.value;
 
-    gameObject.description = unescapeHTML(
-      clearHTMLTags(
+    gameObject.description = clearHTMLTags(
+      unescapeHTML(
         games.children[i].getElementsByTagName("description")[0]?.value
       )
     );

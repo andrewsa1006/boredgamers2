@@ -11,7 +11,7 @@ const AppProvider = ({ children }) => {
     created: 0,
     rated: false,
     secret: "",
-    plays: [],
+    Plays: [],
     lists: {
       Collection: [],
       Wishlist: [],
@@ -71,7 +71,7 @@ const AppProvider = ({ children }) => {
   };
 
   const setPlays = (plays) => {
-    setAppState((value) => ({ ...value, plays: plays }));
+    setAppState((value) => ({ ...value, Plays: plays }));
   };
 
   const setLists = (listData) => {

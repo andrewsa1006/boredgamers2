@@ -1,21 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 
-// import MainDrawerNavigator from "./main-drawer.navigator";
-// import AddScreen from "../../screens/add/add.screen";
+import HomeDrawerNavigator from "../home/home-drawer.navigator";
+import ManageGameScreen from "../../screens/manage-game/manage-game.screen";
 // import MarketPlace from "../screens/Marketplace";
 
 const Tab = createBottomTabNavigator();
 
 const MarketPlace = () => {
-  return <Text>Hello there! MarketPlace!</Text>;
-};
-
-const AddScreen = () => {
-  return <Text>Hello there! MarketPlace!</Text>;
-};
-
-const MainDrawerNavigator = () => {
   return <Text>Hello there! MarketPlace!</Text>;
 };
 
@@ -65,8 +57,8 @@ const MainTabNavigator = () => {
             </View>
           ),
         }}
-        name="MainDrawer"
-        component={MainDrawerNavigator}
+        name="Home"
+        component={HomeDrawerNavigator}
       />
 
       <Tab.Screen
@@ -89,8 +81,8 @@ const MainTabNavigator = () => {
           ),
           unmountOnBlur: true,
         }}
-        name="AddScreen"
-        component={AddScreen}
+        name="ManageGame"
+        component={ManageGameScreen}
       />
 
       <Tab.Screen

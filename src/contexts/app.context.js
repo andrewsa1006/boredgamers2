@@ -8,7 +8,7 @@ const AppContext = createContext({
     created: 0,
     rated: false,
     secret: "",
-    plays: [],
+    Plays: [],
     lists: {
       Collection: [],
       Wishlist: [],

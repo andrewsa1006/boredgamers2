@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import { Text, Switch } from "react-native-paper";
 
-const CustomSwitchComponent = ({
+const SwitchComponent = ({
   label,
   value,
   setValue,
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   baseSwitchStyle: {},
 });
 
-export default CustomSwitchComponent;
+export default SwitchComponent;
